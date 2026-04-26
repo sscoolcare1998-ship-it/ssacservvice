@@ -1,0 +1,2373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SS Coolcare – Your Comfort, Our Priority</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #f7f7ff;
+      --bg2: #eeeeff;
+      --bg3: #e0e0f8;
+      --card: rgba(255,255,255,0.72);
+      --card-border: rgba(39,24,126,0.10);
+      --text: #1a1a2e;
+      --text2: #27187E;
+      --text3: #381932;
+      --accent: #27187E;
+      --accent2: #381932;
+      --accent3: #4f3be8;
+      --warm: #fff3e6;
+      --warm2: #ffd6a5;
+      --nav-bg: rgba(247,247,255,0.82);
+      --shadow: 0 8px 48px rgba(39,24,126,0.10);
+      --shadow2: 0 2px 16px rgba(39,24,126,0.08);
+      --glass: rgba(255,255,255,0.55);
+      --glass-border: rgba(255,255,255,0.7);
+      --hero-text: #27187E;
+      --footer-bg: #1a1a2e;
+      --footer-text: #b0b8d8;
+    }
+    [data-theme="dark"] {
+      --bg: #0d0d1a;
+      --bg2: #12122a;
+      --bg3: #1a1a38;
+      --card: rgba(20,20,50,0.72);
+      --card-border: rgba(100,120,255,0.12);
+      --text: #e8e8ff;
+      --text2: #a0b4ff;
+      --text3: #ffb8d9;
+      --accent: #6272ff;
+      --accent2: #ff6bb5;
+      --accent3: #7c8fff;
+      --warm: #1e1228;
+      --warm2: #3d2255;
+      --nav-bg: rgba(13,13,26,0.88);
+      --shadow: 0 8px 48px rgba(0,0,0,0.5);
+      --shadow2: 0 2px 16px rgba(0,0,0,0.3);
+      --glass: rgba(20,20,50,0.55);
+      --glass-border: rgba(100,120,255,0.18);
+      --hero-text: #c8d4ff;
+      --footer-bg: #080812;
+      --footer-text: #6070a0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.4s, color 0.4s;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      letter-spacing: -0.01em;
+      font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+      text-rendering: optimizeLegibility;
+    }
+    h1,h2,h3,h4,h5 {
+      font-family: 'Manrope', sans-serif;
+      letter-spacing: -0.04em;
+      font-feature-settings: 'kern' 1, 'ss01' 1;
+    }
+    p, li, label, input, select, textarea, a, span {
+      font-feature-settings: 'kern' 1;
+    }
+
+    /* ─── NAVBAR ─────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 68px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(22px) saturate(1.5);
+      -webkit-backdrop-filter: blur(22px) saturate(1.5);
+      border-bottom: 1px solid var(--glass-border);
+      transition: all 0.4s;
+    }
+    nav.scrolled {
+      height: 58px;
+      box-shadow: var(--shadow2);
+    }
+    .logo {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800; font-size: 1.22rem;
+      color: var(--accent);
+      letter-spacing: -0.05em;
+      text-decoration: none;
+      display: flex; align-items: center; gap: 9px;
+    }
+    .logo-icon {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 1rem;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 34px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none; color: var(--text);
+      font-size: 0.88rem; font-weight: 600;
+      letter-spacing: -0.01em;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute;
+      bottom: -3px; left: 0; right: 0; height: 2px;
+      background: var(--accent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.25s;
+      border-radius: 2px;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .btn-nav {
+      padding: 8px 20px; border-radius: 50px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; font-size: 0.88rem; font-weight: 600;
+      border: none; cursor: pointer; text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-nav:hover { opacity: 0.85; transform: translateY(-1px); }
+    .dark-toggle {
+      width: 44px; height: 24px;
+      background: var(--bg3);
+      border-radius: 50px; border: none; cursor: pointer;
+      position: relative; transition: background 0.3s;
+      flex-shrink: 0;
+    }
+    .dark-toggle::before {
+      content: '';
+      position: absolute; top: 3px; left: 3px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: linear-gradient(135deg, #f9d71c, #f97316);
+      transition: transform 0.3s, background 0.3s;
+    }
+    [data-theme="dark"] .dark-toggle::before {
+      transform: translateX(20px);
+      background: linear-gradient(135deg, #6272ff, #a78bfa);
+    }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 4px;
+    }
+    .hamburger span {
+      width: 24px; height: 2px;
+      background: var(--text); border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      position: fixed; top: 68px; left: 0; right: 0;
+      background: var(--nav-bg);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      padding: 20px 5vw;
+      display: flex; flex-direction: column; gap: 4px;
+      transform: translateY(-110%);
+      transition: transform 0.4s cubic-bezier(.77,0,.18,1);
+      z-index: 999;
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .mobile-menu.open { transform: translateY(0); }
+    .mobile-menu a {
+      text-decoration: none; color: var(--text);
+      font-size: 1rem; font-weight: 600;
+      letter-spacing: -0.02em;
+      padding: 13px 0; border-bottom: 1px solid var(--card-border);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+
+    /* ─── HERO ───────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      padding: 100px 5vw 60px;
+      background: var(--bg);
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(39,24,126,0.14) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(56,25,50,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(255,243,230,0.3) 0%, transparent 60%);
+    }
+    [data-theme="dark"] .hero-bg {
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(98,114,255,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(255,107,181,0.07) 0%, transparent 60%);
+    }
+    .hero-grid-overlay {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(39,24,126,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(39,24,126,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    [data-theme="dark"] .hero-grid-overlay {
+      background-image:
+        linear-gradient(rgba(100,120,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(100,120,255,0.06) 1px, transparent 1px);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center;
+      max-width: 820px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(12px);
+      padding: 6px 16px; border-radius: 50px;
+      font-size: 0.72rem; font-weight: 700;
+      color: var(--accent); margin-bottom: 28px;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      animation: fadeInDown 0.8s ease both;
+    }
+    .hero-badge .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #22c55e;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+    .hero h1 {
+      font-size: clamp(2.6rem, 6.5vw, 5.2rem);
+      font-weight: 800;
+      line-height: 1.04;
+      color: var(--hero-text);
+      letter-spacing: -0.04em;
+      animation: fadeInUp 0.9s 0.2s ease both;
+      margin-bottom: 18px;
+    }
+    .hero h1 .gradient-text {
+      background: linear-gradient(135deg, var(--accent), var(--accent2), #e63d90);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.18rem);
+      color: var(--text2); max-width: 500px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      animation: fadeInUp 0.9s 0.4s ease both;
+    }
+    .hero-btns {
+      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+      animation: fadeInUp 0.9s 0.55s ease both;
+      margin-bottom: 60px;
+    }
+    .btn-primary {
+      padding: 14px 30px; border-radius: 50px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; font-size: 0.92rem; font-weight: 700;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: -0.01em;
+      border: none; cursor: pointer; text-decoration: none;
+      box-shadow: 0 8px 32px rgba(39,24,126,0.28);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 16px 40px rgba(39,24,126,0.36); }
+    .btn-secondary {
+      padding: 14px 30px; border-radius: 50px;
+      background: transparent;
+      color: var(--accent); font-size: 0.92rem; font-weight: 600;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: -0.01em;
+      border: 1.5px solid var(--accent);
+      cursor: pointer; text-decoration: none;
+      transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-secondary:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
+
+    /* ─── HERO CAROUSEL ─────────────────────── */
+    .hero-carousel-wrap {
+      width: 100%; max-width: 900px;
+      animation: fadeInUp 0.9s 0.7s ease both;
+      position: relative; z-index: 2;
+    }
+    .hero-swiper .swiper-slide {
+      border-radius: 20px;
+      overflow: hidden;
+      height: 220px;
+    }
+    .hero-slide {
+      height: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 32px 40px;
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      position: relative; overflow: hidden;
+    }
+    .hero-slide::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--accent) 0%, transparent 70%);
+      opacity: 0.07;
+    }
+    .hero-slide-text h3 {
+      font-size: 1.35rem; font-weight: 800;
+      letter-spacing: -0.035em;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .hero-slide-text p {
+      font-size: 0.88rem; color: var(--text2);
+      max-width: 280px; line-height: 1.6;
+      font-weight: 400;
+    }
+    .hero-slide-icon {
+      font-size: 5rem; opacity: 0.18;
+      position: absolute; right: 40px; top: 50%;
+      transform: translateY(-50%);
+    }
+    .hero-slide-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; font-size: 0.68rem; font-weight: 700;
+      padding: 3px 11px; border-radius: 50px;
+      margin-bottom: 10px; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+
+    /* ─── SECTION COMMONS ────────────────────── */
+    section { padding: 100px 5vw; }
+    .section-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .section-title {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 800; line-height: 1.08;
+      letter-spacing: -0.04em;
+      color: var(--text); margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 1rem; color: var(--text2);
+      max-width: 520px; line-height: 1.7;
+      font-weight: 400; letter-spacing: -0.01em;
+    }
+    .section-head { margin-bottom: 56px; }
+    .section-head.center { text-align: center; }
+    .section-head.center .section-sub { margin: 0 auto; }
+    .divider {
+      width: 44px; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 3px; margin-bottom: 20px;
+    }
+    .divider.center { margin: 0 auto 20px; }
+
+    /* ─── SERVICES ───────────────────────────── */
+    #services { background: var(--bg); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 36px 28px;
+      position: relative; overflow: hidden;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s;
+      cursor: default;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--accent) 0%, transparent 100%);
+      opacity: 0; transition: opacity 0.35s;
+    }
+    .service-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: var(--shadow);
+    }
+    .service-card:hover::before { opacity: 0.05; }
+    .service-icon {
+      width: 56px; height: 56px; border-radius: 16px;
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(39,24,126,0.22);
+      position: relative; z-index: 1;
+    }
+    .service-card h3 {
+      font-size: 1.05rem; font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 10px; color: var(--text);
+      position: relative; z-index: 1;
+    }
+    .service-card p {
+      font-size: 0.875rem; color: var(--text2);
+      line-height: 1.65; position: relative; z-index: 1;
+      font-weight: 400;
+    }
+    .service-card .card-tag {
+      position: absolute; top: 20px; right: 20px;
+      font-size: 0.72rem; font-weight: 600;
+      color: var(--accent); background: var(--bg2);
+      padding: 3px 10px; border-radius: 50px;
+      z-index: 1;
+    }
+    .service-card:hover .service-icon {
+      transform: scale(1.12) rotate(-3deg);
+      transition: transform 0.35s;
+    }
+
+    /* ─── SERVICE CAROUSEL ───────────────────── */
+    .service-carousel-section {
+      background: var(--bg2);
+      padding: 60px 5vw;
+    }
+    .service-swiper .swiper-slide { width: 260px; }
+    .service-swiper-card {
+      border-radius: 20px;
+      overflow: hidden; height: 200px;
+      position: relative;
+      display: flex; align-items: flex-end;
+      padding: 24px;
+      cursor: pointer;
+    }
+    .service-swiper-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+      z-index: 1;
+    }
+    .service-swiper-card .bg {
+      position: absolute; inset: 0;
+      font-size: 7rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.4s;
+    }
+    .service-swiper-card:hover .bg { transform: scale(1.1); }
+    .service-swiper-card .info { position: relative; z-index: 2; color: #fff; }
+    .service-swiper-card .info h4 { font-size: 1rem; font-weight: 700; }
+    .service-swiper-card .info p { font-size: 0.8rem; opacity: 0.8; }
+
+    /* ─── ABOUT ──────────────────────────────── */
+    #about { background: var(--bg2); }
+    .about-layout {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .about-visual {
+      position: relative; border-radius: 28px; overflow: hidden;
+    }
+    .about-img-box {
+      width: 100%; aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 50%, #e63d90 100%);
+      border-radius: 28px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 7rem; position: relative; overflow: hidden;
+    }
+    .about-img-box::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.08));
+    }
+    .about-float-card {
+      position: absolute; bottom: -20px; right: -20px;
+      background: var(--card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px; padding: 18px 24px;
+      box-shadow: var(--shadow);
+    }
+    .about-float-card .num {
+      font-family: 'Manrope', sans-serif;
+      font-size: 2rem; font-weight: 800;
+      color: var(--accent);
+    }
+    .about-float-card .lbl { font-size: 0.82rem; color: var(--text2); }
+    .about-text ul {
+      list-style: none; display: flex; flex-direction: column; gap: 12px;
+      margin-top: 28px;
+    }
+    .about-text ul li {
+      display: flex; gap: 12px; align-items: flex-start;
+      font-size: 0.95rem; color: var(--text2); line-height: 1.5;
+    }
+    .about-text ul li .check {
+      width: 22px; height: 22px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; color: #fff; margin-top: 1px;
+    }
+
+    /* ─── WHY CHOOSE US ──────────────────────── */
+    #why { background: var(--bg); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px; margin-top: 8px;
+    }
+    .why-card {
+      text-align: center;
+      padding: 40px 24px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      backdrop-filter: blur(10px);
+    }
+    .why-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .why-icon {
+      font-size: 2.2rem; margin-bottom: 16px;
+      display: block;
+    }
+    .why-num {
+      font-family: 'Manrope', sans-serif;
+      font-size: 2.2rem; font-weight: 800;
+      color: var(--accent);
+      line-height: 1.1; letter-spacing: -0.04em;
+    }
+    .why-card p {
+      font-size: 0.85rem; color: var(--text2);
+      margin-top: 8px; line-height: 1.65;
+      font-weight: 400;
+    }
+
+    /* ─── STATS SECTION (redesigned) ────────── */
+    .stats-section {
+      position: relative;
+      padding: 100px 5vw;
+      background: var(--bg2);
+      overflow: hidden;
+    }
+    .stats-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 80% at 10% 50%, rgba(39,24,126,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 90% 50%, rgba(56,25,50,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    [data-theme="dark"] .stats-section::before {
+      background:
+        radial-gradient(ellipse 70% 80% at 10% 50%, rgba(98,114,255,0.09) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 90% 50%, rgba(255,107,181,0.06) 0%, transparent 70%);
+    }
+    .stats-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      position: relative; z-index: 1;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .stat-block {
+      padding: 52px 48px;
+      position: relative;
+      display: flex; flex-direction: column;
+      justify-content: space-between;
+      min-height: 220px;
+      transition: background 0.3s;
+      cursor: default;
+    }
+    .stat-block::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: opacity 0.4s;
+      border-radius: 24px;
+      z-index: -1;
+    }
+    .stat-block:hover::after { opacity: 1; }
+    .stat-block:hover .stat-num,
+    .stat-block:hover .stat-label,
+    .stat-block:hover .stat-desc,
+    .stat-block:hover .stat-icon { color: #fff !important; }
+    .stat-block:hover .stat-bar-fill { background: rgba(255,255,255,0.5) !important; }
+    .stat-block:hover .stat-bar-track { background: rgba(255,255,255,0.2) !important; }
+    /* border grid lines */
+    .stat-block:nth-child(1) { border-right: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); border-radius: 24px 0 0 0; }
+    .stat-block:nth-child(2) { border-bottom: 1px solid var(--card-border); border-radius: 0 24px 0 0; }
+    .stat-block:nth-child(3) { border-right: 1px solid var(--card-border); border-radius: 0 0 0 24px; }
+    .stat-block:nth-child(4) { border-radius: 0 0 24px 0; }
+    .stat-icon {
+      font-size: 1.6rem; margin-bottom: 20px;
+      display: block; color: var(--accent);
+      transition: color 0.3s;
+    }
+    .stat-num {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1; letter-spacing: -0.05em;
+      transition: color 0.3s;
+    }
+    .stat-num sup {
+      font-size: 0.45em; vertical-align: super;
+      letter-spacing: 0;
+    }
+    .stat-label {
+      font-size: 0.92rem; font-weight: 700;
+      color: var(--text);
+      margin-top: 10px; letter-spacing: -0.01em;
+      transition: color 0.3s;
+    }
+    .stat-desc {
+      font-size: 0.8rem; color: var(--text2);
+      margin-top: 6px; line-height: 1.6;
+      transition: color 0.3s;
+    }
+    .stat-bar-track {
+      height: 3px; background: var(--bg3);
+      border-radius: 99px; margin-top: 24px;
+      overflow: hidden; transition: background 0.3s;
+    }
+    .stat-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 99px; width: 0%;
+      transition: width 1.4s cubic-bezier(.22,.68,0,1.2), background 0.3s;
+    }
+    @media (max-width: 600px) {
+      .stats-inner { grid-template-columns: 1fr; }
+      .stat-block:nth-child(1),
+      .stat-block:nth-child(2),
+      .stat-block:nth-child(3),
+      .stat-block:nth-child(4) {
+        border-right: none;
+        border-bottom: 1px solid var(--card-border);
+        border-radius: 0;
+      }
+      .stat-block:nth-child(4) { border-bottom: none; }
+    }
+
+    /* ─── TESTIMONIALS ───────────────────────── */
+    #testimonials { background: var(--bg2); }
+    .testi-swiper { padding-bottom: 48px !important; }
+    .testi-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 20px; padding: 36px 32px;
+      backdrop-filter: blur(12px);
+      height: 100%;
+    }
+    .stars { color: #f59e0b; font-size: 1rem; margin-bottom: 16px; letter-spacing: 2px; }
+    .testi-text {
+      font-size: 0.92rem; color: var(--text2);
+      line-height: 1.75; margin-bottom: 24px;
+      font-style: italic; font-weight: 400;
+    }
+    .testi-author { display: flex; align-items: center; gap: 14px; }
+    .testi-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 700; color: #fff;
+      font-family: 'Manrope', sans-serif;
+      flex-shrink: 0;
+    }
+    .testi-author .name { font-weight: 700; font-size: 0.9rem; color: var(--text); letter-spacing: -0.01em; }
+    .testi-author .loc { font-size: 0.78rem; color: var(--text2); margin-top: 2px; }
+    .swiper-pagination-bullet { background: var(--accent) !important; }
+    .swiper-pagination-bullet-active { background: var(--accent2) !important; }
+
+    /* ─── CONTACT ────────────────────────────── */
+    #contact { background: var(--bg); }
+    .contact-layout {
+      display: grid; grid-template-columns: 1fr 1.3fr;
+      gap: 56px; align-items: start;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 28px; }
+    .contact-info h2 { font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; }
+    .contact-info p { color: var(--text2); line-height: 1.65; font-size: 0.92rem; font-weight: 400; }
+    .contact-item {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px 20px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.2s;
+    }
+    .contact-item:hover { transform: translateX(6px); }
+    .contact-item .ci-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .contact-item .ci-text .label { font-size: 0.78rem; color: var(--text2); margin-bottom: 2px; }
+    .contact-item .ci-text .val { font-weight: 600; font-size: 0.95rem; color: var(--text); }
+    .map-embed {
+      border-radius: 18px; overflow: hidden;
+      border: 1px solid var(--card-border);
+      margin-top: 8px;
+    }
+    .map-embed iframe { display: block; }
+    .contact-form {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 24px; padding: 40px 36px;
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+    .contact-form h3 {
+      font-size: 1.38rem; font-weight: 800; letter-spacing: -0.035em;
+      margin-bottom: 8px; color: var(--text);
+    }
+    .contact-form .form-sub {
+      font-size: 0.88rem; color: var(--text2);
+      margin-bottom: 28px; line-height: 1.5;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+    .form-group label {
+      font-size: 0.72rem; font-weight: 700;
+      color: var(--text2); letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--bg);
+      border: 1.5px solid var(--card-border);
+      border-radius: 12px; padding: 13px 16px;
+      font-size: 0.9rem; color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      outline: none; width: 100%;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--text2); opacity: 0.5;
+      font-weight: 400;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(39,24,126,0.10);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group select { cursor: pointer; }
+    .form-group select option { background: var(--bg2); color: var(--text); }
+    .form-submit {
+      width: 100%; padding: 15px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; font-size: 0.95rem; font-weight: 700;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: -0.01em;
+      border: none; cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 8px 24px rgba(39,24,126,0.25);
+      margin-top: 4px;
+    }
+    .form-submit:hover { opacity: 0.88; transform: translateY(-2px); }
+    .form-success {
+      display: none;
+      text-align: center; padding: 24px;
+      color: var(--accent); font-weight: 600; font-size: 1.1rem;
+    }
+    .form-success.show { display: block; }
+
+    /* ─── FOOTER ─────────────────────────────── */
+    footer {
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      padding: 60px 5vw 32px;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr;
+      gap: 40px; padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .footer-brand .logo { color: #fff; margin-bottom: 14px; display: flex; }
+    .footer-brand p { font-size: 0.86rem; line-height: 1.7; font-weight: 400; color: var(--footer-text); max-width: 240px; }
+    .footer-col h4 {
+      font-size: 0.72rem; font-weight: 700;
+      color: #fff; margin-bottom: 18px;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a {
+      text-decoration: none; color: var(--footer-text);
+      font-size: 0.86rem; font-weight: 400; transition: color 0.2s;
+      letter-spacing: -0.01em;
+    }
+    .footer-col ul li a:hover { color: #fff; }
+    .footer-socials { display: flex; gap: 10px; margin-top: 20px; }
+    .footer-socials a {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.95rem; color: var(--footer-text);
+      text-decoration: none; transition: background 0.2s, color 0.2s;
+    }
+    .footer-socials a:hover { background: var(--accent); color: #fff; }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+      padding-top: 24px; font-size: 0.82rem; color: var(--footer-text);
+    }
+    .footer-bottom a { color: var(--footer-text); text-decoration: none; transition: color 0.2s; }
+    .footer-bottom a:hover { color: #fff; }
+
+    /* ─── FLOATING BUTTONS ───────────────────── */
+    .floating-btns {
+      position: fixed; bottom: 28px; right: 24px;
+      display: flex; flex-direction: column; gap: 12px;
+      z-index: 900;
+    }
+    .fab {
+      width: 52px; height: 52px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.35rem; border: none; cursor: pointer;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+      transition: transform 0.25s, box-shadow 0.25s;
+      text-decoration: none;
+    }
+    .fab:hover { transform: translateY(-3px) scale(1.08); box-shadow: 0 14px 36px rgba(0,0,0,0.32); }
+    .fab-wa { background: #25D366; color: #fff; }
+    .fab-call { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; }
+    .fab-label {
+      position: absolute; right: 60px;
+      background: var(--text); color: var(--bg);
+      font-size: 0.78rem; font-weight: 600;
+      padding: 4px 10px; border-radius: 8px;
+      white-space: nowrap; opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .fab:hover .fab-label { opacity: 1; }
+
+    /* ─── ANIMATIONS ─────────────────────────── */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.left { transform: translateX(-30px); }
+    .reveal.right { transform: translateX(30px); }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── LOADING SCREEN ─────────────────────── */
+    /* loader removed */
+
+    /* ─── SCROLL TO TOP (inside FAB column) ─── */
+    #scrollTop {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: none;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 28px rgba(39,24,126,0.35);
+      transition: opacity 0.35s, transform 0.25s, box-shadow 0.25s;
+      opacity: 0; pointer-events: none;
+      font-size: 1.1rem; color: #fff; font-weight: 700;
+      /* Not fixed — sits naturally in the .floating-btns flex column */
+      position: relative;
+    }
+    #scrollTop.visible {
+      opacity: 1; pointer-events: auto;
+      animation: scrollTopPulse 2.5s ease infinite;
+    }
+    #scrollTop:hover {
+      transform: translateY(-4px) scale(1.1);
+      box-shadow: 0 16px 36px rgba(39,24,126,0.5);
+      animation: none;
+    }
+    @keyframes scrollTopPulse {
+      0%,100% { box-shadow: 0 8px 28px rgba(39,24,126,0.35), 0 0 0 0 rgba(39,24,126,0.2); }
+      50%      { box-shadow: 0 8px 28px rgba(39,24,126,0.35), 0 0 0 10px rgba(39,24,126,0); }
+    }
+
+    /* ─── RIGHT SIDE SCROLL PROGRESS BAR ───────── */
+    /* Hide native scrollbar but keep scrolling */
+    html {
+      scrollbar-width: none;        /* Firefox */
+    }
+    html::-webkit-scrollbar {
+      display: none;                /* Chrome / Safari */
+    }
+
+    #scroll-bar {
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      width: 4px;
+      z-index: 2000;
+      pointer-events: none;
+    }
+    /* Faint full-height track */
+    #scroll-bar .sb-track {
+      position: absolute;
+      inset: 0;
+      background: rgba(39,24,126,0.10);
+    }
+    [data-theme="dark"] #scroll-bar .sb-track {
+      background: rgba(255,255,255,0.08);
+    }
+    /* Fill grows TOP → BOTTOM */
+    #scroll-bar .sb-fill {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 0%;
+      background: linear-gradient(
+        180deg,
+        #4361ee  0%,
+        #4f3be8 22%,
+        #27187E 45%,
+        #7b2fff 68%,
+        #c8245c 84%,
+        #e63d90 100%
+      );
+      background-size: 4px 100vh;
+      background-attachment: fixed;
+      transition: height 0.08s linear;
+      border-radius: 0 0 2px 2px;
+    }
+    /* Glowing dot rides the bottom tip of fill */
+    #scroll-bar .sb-glow {
+      position: absolute;
+      right: -3px;
+      top: 0%;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #4361ee;
+      box-shadow:
+        0 0 8px 3px rgba(67,97,238,0.7),
+        0 0 20px 8px rgba(67,97,238,0.25);
+      margin-top: -5px;
+      transform: none;
+      transition:
+        top 0.08s linear,
+        background 0.2s,
+        box-shadow 0.2s,
+        opacity 0.3s;
+      opacity: 0;
+    }
+    #scroll-bar .sb-glow.visible { opacity: 1; }
+
+    /* ─── GALLERY ────────────────────────────── */
+    #gallery { background: var(--bg2); }
+
+    .gallery-filters {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      justify-content: center; margin-bottom: 40px;
+    }
+    .gf-btn {
+      padding: 8px 20px; border-radius: 50px;
+      border: 1.5px solid var(--card-border);
+      background: var(--card);
+      color: var(--text2); font-size: 0.82rem; font-weight: 600;
+      cursor: pointer; transition: all 0.22s;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      backdrop-filter: blur(10px);
+    }
+    .gf-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .gf-btn.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-color: transparent; color: #fff;
+    }
+    .gallery-grid { columns: 3; column-gap: 18px; }
+    @media (max-width: 768px) { .gallery-grid { columns: 2; } }
+    @media (max-width: 480px) { .gallery-grid { columns: 1; } }
+
+    .gallery-item {
+      break-inside: avoid; margin-bottom: 18px;
+      border-radius: 18px; overflow: hidden;
+      position: relative; cursor: pointer;
+      background: var(--bg3); border: 1px solid var(--card-border);
+      transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s;
+    }
+    .gallery-item:hover {
+      transform: translateY(-6px) scale(1.015);
+      box-shadow: 0 24px 56px rgba(39,24,126,0.22);
+    }
+    .gallery-item img {
+      width: 100%; display: block; object-fit: cover;
+      transition: transform 0.5s cubic-bezier(.22,.68,0,1.2);
+    }
+    /* SVG illustrated cards */
+    .gi-art {
+      width: 100%; display: block; overflow: hidden;
+      transition: transform 0.5s cubic-bezier(.22,.68,0,1.2);
+    }
+    .gi-art svg { width: 100%; height: auto; display: block; }
+    .gallery-item:nth-child(3n+1) .gi-art svg,
+    .gallery-item:nth-child(3n+1) img { height: 240px; object-fit: cover; }
+    .gallery-item:nth-child(3n+2) .gi-art svg,
+    .gallery-item:nth-child(3n+2) img { height: 180px; object-fit: cover; }
+    .gallery-item:nth-child(3n+3) .gi-art svg,
+    .gallery-item:nth-child(3n+3) img { height: 210px; object-fit: cover; }
+    .gallery-item:hover .gi-art { transform: scale(1.07); }
+    .gallery-item:hover img { transform: scale(1.07); }
+    .gallery-badge {
+      position: absolute; top: 12px; left: 12px;
+      background: rgba(255,255,255,0.93); backdrop-filter: blur(8px);
+      color: var(--accent); font-size: 0.68rem; font-weight: 700;
+      padding: 4px 11px; border-radius: 50px;
+      letter-spacing: 0.06em; text-transform: uppercase; z-index: 3;
+    }
+    [data-theme="dark"] .gallery-badge { background: rgba(13,13,26,0.88); }
+    .gallery-zoom {
+      position: absolute; top: 12px; right: 12px;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(255,255,255,0.92);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.95rem; z-index: 3; color: var(--accent);
+      opacity: 0; transform: scale(0.6);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .gallery-item:hover .gallery-zoom { opacity: 1; transform: scale(1); }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(5,5,20,0.88) 0%, transparent 55%);
+      opacity: 0; transition: opacity 0.35s; z-index: 2;
+      display: flex; align-items: flex-end; padding: 18px 16px;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay-text { color: #fff; }
+    .gallery-overlay-text h4 { font-size: 0.92rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 3px; }
+    .gallery-overlay-text p  { font-size: 0.75rem; opacity: 0.78; }
+
+    /* ─── LIGHTBOX ───────────────────────────── */
+    #lightbox {
+      position: fixed; inset: 0;
+      background: rgba(3,3,15,0.95); backdrop-filter: blur(24px);
+      z-index: 9000; display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s; padding: 20px;
+    }
+    #lightbox.open { opacity: 1; pointer-events: all; }
+    .lb-box {
+      background: var(--card); border: 1px solid var(--card-border);
+      border-radius: 24px; max-width: 600px; width: 100%;
+      position: relative; overflow: hidden;
+      transform: translateY(28px) scale(0.95);
+      transition: transform 0.38s cubic-bezier(.22,.68,0,1.2);
+      box-shadow: 0 48px 100px rgba(0,0,0,0.65);
+    }
+    #lightbox.open .lb-box { transform: translateY(0) scale(1); }
+    .lb-img { width: 100%; height: 300px; object-fit: cover; display: block; }
+    .lb-body { padding: 24px 28px 28px; text-align: left; }
+    .lb-top-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .lb-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; font-size: 0.7rem; font-weight: 700;
+      padding: 4px 14px; border-radius: 50px;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .lb-location { font-size: 0.78rem; color: var(--text2); font-weight: 500; }
+    .lb-title { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.04em; color: var(--text); margin-bottom: 8px; }
+    .lb-desc  { font-size: 0.88rem; color: var(--text2); line-height: 1.7; margin-bottom: 20px; }
+    .lb-close {
+      position: absolute; top: 14px; right: 14px;
+      background: rgba(0,0,0,0.6); border: none; border-radius: 50%;
+      width: 34px; height: 34px; cursor: pointer;
+      font-size: 0.9rem; color: #fff; z-index: 5;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .lb-close:hover { background: var(--accent2); transform: rotate(90deg); }
+    .lb-book {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 26px; border-radius: 50px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; font-size: 0.88rem; font-weight: 700;
+      text-decoration: none; transition: opacity 0.2s, transform 0.2s;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .lb-book:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    /* ─── VIDEO SECTION ──────────────────────── */
+    #videos { background: var(--bg); }
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 700px) { .video-grid { grid-template-columns: 1fr; } }
+    .video-card {
+      border-radius: 20px; overflow: hidden;
+      background: var(--card); border: 1px solid var(--card-border);
+      transition: transform 0.3s, box-shadow 0.3s;
+      backdrop-filter: blur(10px);
+    }
+    .video-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(39,24,126,0.18); }
+    .video-wrap {
+      position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+    }
+    .video-wrap iframe {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; border: none;
+    }
+    .video-info { padding: 18px 20px; }
+    .video-info h4 {
+      font-size: 1rem; font-weight: 700;
+      letter-spacing: -0.025em; color: var(--text); margin-bottom: 5px;
+    }
+    .video-info p { font-size: 0.82rem; color: var(--text2); line-height: 1.5; }
+    .video-tag {
+      display: inline-block;
+      background: var(--bg3);
+      color: var(--accent); font-size: 0.68rem; font-weight: 700;
+      padding: 3px 10px; border-radius: 50px;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────── */
+    @media (max-width: 900px) {
+      .about-layout, .contact-layout { grid-template-columns: 1fr; }
+      .about-visual { display: none; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .btn-nav { display: none; }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .footer-top { grid-template-columns: 1fr; }
+      .hero-slide { padding: 24px; }
+      .hero-slide-text h3 { font-size: 1.1rem; }
+      .contact-form { padding: 28px 20px; }
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(20px);
+      background: #22c55e; color: #fff;
+      padding: 12px 28px; border-radius: 50px;
+      font-size: 0.9rem; font-weight: 600;
+      opacity: 0; transition: opacity 0.3s, transform 0.3s;
+      z-index: 9999; pointer-events: none;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* ─── SWIPER MINIMAL (inline fallback) ── */
+    .swiper { overflow: hidden; position: relative; }
+    .swiper-wrapper {
+      display: flex; width: 100%; height: 100%;
+      transition-property: transform;
+      box-sizing: content-box;
+    }
+    .swiper-slide { flex-shrink: 0; width: 100%; height: 100%; position: relative; }
+    .swiper-pagination { position: absolute; text-align: center; z-index: 10; bottom: 8px; width: 100%; }
+    .swiper-pagination-bullet {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent); opacity: 0.4;
+      display: inline-block; margin: 0 4px; cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .swiper-pagination-bullet-active { opacity: 1; transform: scale(1.3); }
+  </style>
+</head>
+<body data-theme="light">
+
+
+
+<!-- ─── RIGHT EDGE SCROLL PROGRESS ──────── -->
+<div id="scroll-bar">
+  <div class="sb-track"></div>
+  <div class="sb-fill" id="sbFill"></div>
+  <div class="sb-glow" id="sbGlow"></div>
+</div>
+
+
+
+<!-- Toast -->
+<div class="toast" id="toast">✅ Message sent! We'll contact you shortly.</div>
+
+<!-- ─── NAVBAR ─────────────────────────────── -->
+<nav id="navbar">
+  <a href="#" class="logo">
+    <div class="logo-icon">❄</div>
+    SS Coolcare
+  </a>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="dark-toggle" id="darkToggle" title="Toggle dark mode"></button>
+    <a href="tel:+919876543210" class="btn-nav">📞 Call Now</a>
+    <button class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" onclick="closeMenu()">Home</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#why" onclick="closeMenu()">Why Us</a>
+  <a href="#gallery" onclick="closeMenu()">Gallery</a>
+  <a href="#videos" onclick="closeMenu()">Videos</a>
+  <a href="#testimonials" onclick="closeMenu()">Reviews</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- ─── HERO ──────────────────────────────── -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span>Trusted Home Appliance Experts</div>
+    <h1>Your Comfort,<br><span class="gradient-text">Our Priority</span></h1>
+    <p class="hero-sub">Expert AC, Washing Machine, Refrigerator & RO repair — fast, affordable, and guaranteed satisfaction every time.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">📅 Book Service Now</a>
+      <a href="#services" class="btn-secondary">Explore Services →</a>
+    </div>
+  </div>
+  <!-- Hero Swiper -->
+  <div class="hero-carousel-wrap">
+    <div class="swiper hero-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="hero-slide">
+            <div class="hero-slide-text">
+              <div class="hero-slide-tag">⚡ Most Popular</div>
+              <h3>AC Repair & Service</h3>
+              <p>Expert diagnosis, gas refilling, compressor repair, and full AC restoration for all brands.</p>
+            </div>
+            <div class="hero-slide-icon">❄️</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="hero-slide">
+            <div class="hero-slide-text">
+              <div class="hero-slide-tag">🔧 Premium</div>
+              <h3>AC Installation</h3>
+              <p>Professional split & window AC installation with proper wiring, stand, and drain setup.</p>
+            </div>
+            <div class="hero-slide-icon">🏠</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="hero-slide">
+            <div class="hero-slide-text">
+              <div class="hero-slide-tag">🛡 Recommended</div>
+              <h3>Washing Machine Repair</h3>
+              <p>Front-load & top-load washer repair, drum, motor, and pump issues resolved fast.</p>
+            </div>
+            <div class="hero-slide-icon">🫧</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="hero-slide">
+            <div class="hero-slide-text">
+              <div class="hero-slide-tag">❄ Expert</div>
+              <h3>Refrigerator Repair</h3>
+              <p>Cooling problems, compressor failures, PCB issues, and door seal replacement experts.</p>
+            </div>
+            <div class="hero-slide-icon">🧊</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="hero-slide">
+            <div class="hero-slide-text">
+              <div class="hero-slide-tag">💧 Certified</div>
+              <h3>RO Water Purifier</h3>
+              <p>Filter replacement, membrane cleaning, leakage fix, and full RO system installation.</p>
+            </div>
+            <div class="hero-slide-icon">💧</div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ──────────────────────────── -->
+<section id="services">
+  <div class="section-head center reveal">
+    <div class="section-label">What We Do</div>
+    <div class="divider center"></div>
+    <h2 class="section-title">Complete Home Appliance Services</h2>
+    <p class="section-sub">From air conditioners to water purifiers, we cover every home appliance with certified technicians.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal" style="transition-delay:0.05s">
+      <div class="service-icon">❄️</div>
+      <div class="card-tag">AC</div>
+      <h3>AC Repair & Service</h3>
+      <p>All brands serviced. Gas charging, coil cleaning, compressor overhaul, PCB repair and diagnostics.</p>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.1s">
+      <div class="service-icon">🔧</div>
+      <div class="card-tag">AC</div>
+      <h3>AC Installation</h3>
+      <p>Professional split and window AC installation with site survey, mounting, electrical and drain work.</p>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.15s">
+      <div class="service-icon">🛡️</div>
+      <div class="card-tag">AC</div>
+      <h3>AC Annual Maintenance</h3>
+      <p>Scheduled deep-clean, gas top-up, performance check, and priority support all year long.</p>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.2s">
+      <div class="service-icon">🫧</div>
+      <div class="card-tag">Washing</div>
+      <h3>Washing Machine Repair</h3>
+      <p>Drum bearing, motor, PCB, inlet valve, and pump repairs for all front-load and top-load models.</p>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.25s">
+      <div class="service-icon">🧊</div>
+      <div class="card-tag">Fridge</div>
+      <h3>Refrigerator Repair</h3>
+      <p>Cooling failure, frost issue, noisy compressor, thermostat, defrost heater & door gasket experts.</p>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.3s">
+      <div class="service-icon">💧</div>
+      <div class="card-tag">RO</div>
+      <h3>RO Water Purifier</h3>
+      <p>Filter & membrane replacement, UV lamp, TDS calibration, pump repair & new RO installation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICE CAROUSEL ──────────────────── -->
+<div class="service-carousel-section reveal">
+  <div class="section-head reveal" style="margin-bottom:32px">
+    <div class="section-label">Our Specialties</div>
+    <h3 style="font-size:1.6rem;font-weight:800;letter-spacing:-0.5px;color:var(--text)">Swipe to Explore Services</h3>
+  </div>
+  <div class="swiper service-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="service-swiper-card" style="background:linear-gradient(135deg,#1e3a8a,#3b82f6)">
+          <div class="bg">❄️</div>
+          <div class="info"><h4>AC Repair</h4><p>All brands, same day</p></div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="service-swiper-card" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">
+          <div class="bg">🔧</div>
+          <div class="info"><h4>AC Installation</h4><p>Split & window units</p></div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="service-swiper-card" style="background:linear-gradient(135deg,#0f766e,#2dd4bf)">
+          <div class="bg">🫧</div>
+          <div class="info"><h4>Washing Machine</h4><p>Front & top load</p></div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="service-swiper-card" style="background:linear-gradient(135deg,#1d4ed8,#60a5fa)">
+          <div class="bg">🧊</div>
+          <div class="info"><h4>Refrigerator</h4><p>Single & double door</p></div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="service-swiper-card" style="background:linear-gradient(135deg,#0369a1,#38bdf8)">
+          <div class="bg">💧</div>
+          <div class="info"><h4>RO Purifier</h4><p>All brands serviced</p></div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="service-swiper-card" style="background:linear-gradient(135deg,#9f1239,#fb7185)">
+          <div class="bg">🛡️</div>
+          <div class="info"><h4>AMC Plans</h4><p>Annual maintenance</p></div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="service-swiper-card" style="background:linear-gradient(135deg,#065f46,#34d399)">
+          <div class="bg">⚡</div>
+          <div class="info"><h4>Emergency Service</h4><p>24/7 available</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── ABOUT ─────────────────────────────── -->
+<section id="about">
+  <div class="about-layout">
+    <div class="about-visual reveal left">
+      <div class="about-img-box">🏢</div>
+      <div class="about-float-card">
+        <div class="num">10+</div>
+        <div class="lbl">Years of Excellence</div>
+      </div>
+    </div>
+    <div class="about-text reveal right">
+      <div class="section-label">About Us</div>
+      <div class="divider"></div>
+      <h2 class="section-title">Chennai's Most Trusted Appliance Service</h2>
+      <p class="section-sub">SS Coolcare has been serving homes and businesses across Chennai since 2014. We combine technical expertise with genuine care to keep your appliances running perfectly.</p>
+      <ul>
+        <li><div class="check">✓</div>Certified technicians with 5+ years experience each</li>
+        <li><div class="check">✓</div>Genuine spare parts with manufacturer warranty</li>
+        <li><div class="check">✓</div>Same-day service available across Chennai</li>
+        <li><div class="check">✓</div>Transparent pricing — no hidden charges ever</li>
+        <li><div class="check">✓</div>90-day service warranty on all repairs</li>
+        <li><div class="check">✓</div>All major brands: Samsung, LG, Voltas, Whirlpool & more</li>
+      </ul>
+      <div style="margin-top:32px">
+        <a href="#contact" class="btn-primary">Book a Technician →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STATS SECTION (redesigned) ──────── -->
+<div class="stats-section" id="stats">
+  <div class="stats-inner">
+    <!-- Block 1 -->
+    <div class="stat-block reveal">
+      <div>
+        <span class="stat-icon">😊</span>
+        <div class="stat-num"><span data-target2="5000">0</span><sup>+</sup></div>
+        <div class="stat-label">Happy Customers</div>
+        <div class="stat-desc">Homeowners and businesses across Chennai trust SS Coolcare every day.</div>
+      </div>
+      <div class="stat-bar-track"><div class="stat-bar-fill" data-width="92"></div></div>
+    </div>
+    <!-- Block 2 -->
+    <div class="stat-block reveal" style="transition-delay:0.1s">
+      <div>
+        <span class="stat-icon">🏆</span>
+        <div class="stat-num"><span data-target2="10">0</span><sup>+</sup></div>
+        <div class="stat-label">Years of Excellence</div>
+        <div class="stat-desc">A decade of reliable service, earned through quality work and honest pricing.</div>
+      </div>
+      <div class="stat-bar-track"><div class="stat-bar-fill" data-width="78"></div></div>
+    </div>
+    <!-- Block 3 -->
+    <div class="stat-block reveal" style="transition-delay:0.15s">
+      <div>
+        <span class="stat-icon">🔧</span>
+        <div class="stat-num"><span data-target2="25">0</span><sup>+</sup></div>
+        <div class="stat-label">Certified Technicians</div>
+        <div class="stat-desc">Factory-trained experts in AC, washing machines, refrigerators and RO systems.</div>
+      </div>
+      <div class="stat-bar-track"><div class="stat-bar-fill" data-width="65"></div></div>
+    </div>
+    <!-- Block 4 -->
+    <div class="stat-block reveal" style="transition-delay:0.2s">
+      <div>
+        <span class="stat-icon">⭐</span>
+        <div class="stat-num"><span data-target2="98">0</span><sup>%</sup></div>
+        <div class="stat-label">Satisfaction Rate</div>
+        <div class="stat-desc">Nearly every customer rates us 5 stars — we won't rest until the job is done right.</div>
+      </div>
+      <div class="stat-bar-track"><div class="stat-bar-fill" data-width="98"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── WHY CHOOSE US ─────────────────────── -->
+<section id="why">
+  <div class="section-head center reveal">
+    <div class="section-label">Why SS Coolcare</div>
+    <div class="divider center"></div>
+    <h2 class="section-title">The Coolcare Difference</h2>
+    <p class="section-sub">We don't just fix appliances — we restore your peace of mind.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal" style="transition-delay:0.05s">
+      <span class="why-icon">⚡</span>
+      <div class="why-num">Same<br>Day</div>
+      <p>Service available. Book before 12 PM for same-day repair.</p>
+    </div>
+    <div class="why-card reveal" style="transition-delay:0.1s">
+      <span class="why-icon">🛡️</span>
+      <div class="why-num">90 Day</div>
+      <p>Service warranty on every repair we perform.</p>
+    </div>
+    <div class="why-card reveal" style="transition-delay:0.15s">
+      <span class="why-icon">💰</span>
+      <div class="why-num">Zero</div>
+      <p>Hidden charges. Upfront pricing before we begin any work.</p>
+    </div>
+    <div class="why-card reveal" style="transition-delay:0.2s">
+      <span class="why-icon">🔧</span>
+      <div class="why-num">OEM</div>
+      <p>Genuine spare parts only. No cheap substitutes ever.</p>
+    </div>
+    <div class="why-card reveal" style="transition-delay:0.25s">
+      <span class="why-icon">📞</span>
+      <div class="why-num">24/7</div>
+      <p>Customer support available for urgent and emergency calls.</p>
+    </div>
+    <div class="why-card reveal" style="transition-delay:0.3s">
+      <span class="why-icon">🏆</span>
+      <div class="why-num">Top</div>
+      <p>Rated service in Chennai for 5 consecutive years.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ──────────────────────── -->
+<section id="testimonials">
+  <div class="section-head center reveal">
+    <div class="section-label">Customer Reviews</div>
+    <div class="divider center"></div>
+    <h2 class="section-title">What Our Customers Say</h2>
+    <p class="section-sub">Real reviews from real customers across Chennai.</p>
+  </div>
+  <div class="swiper testi-swiper reveal" style="padding-bottom:48px">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"My split AC stopped cooling in peak summer. SS Coolcare sent a technician within 2 hours. Diagnosed a gas leak, fixed it, and the AC has been running perfectly ever since. Excellent service!"</p>
+          <div class="testi-author">
+            <div class="testi-avatar">R</div>
+            <div><div class="name">Rajesh Kumar</div><div class="loc">Anna Nagar, Chennai</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"Washing machine drum was shaking violently. The SS Coolcare technician replaced the bearings professionally. Very affordable price and they gave a 3-month warranty. Highly recommend!"</p>
+          <div class="testi-author">
+            <div class="testi-avatar">P</div>
+            <div><div class="name">Priya Sundaram</div><div class="loc">Velachery, Chennai</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"Got my RO filter and membrane replaced. The water quality is now excellent. They also calibrated the TDS and explained everything. Very transparent about charges — no surprises."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">M</div>
+            <div><div class="name">Manoj Pillai</div><div class="loc">T Nagar, Chennai</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"Double door fridge stopped cooling. They came quickly, diagnosed a compressor issue, gave a fair estimate and repaired it the same day. I'm impressed by their professionalism!"</p>
+          <div class="testi-author">
+            <div class="testi-avatar">S</div>
+            <div><div class="name">Saranya Devi</div><div class="loc">Adyar, Chennai</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"Took AMC for 3 ACs in my office. Best decision ever! They service quarterly, and if anything breaks down, they come within hours. Professional team and great value for money."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">V</div>
+            <div><div class="name">Venkat Raman</div><div class="loc">OMR, Chennai</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<!-- ─── GALLERY ───────────────────────────── -->
+<section id="gallery">
+  <div class="section-head center reveal">
+    <div class="section-label">Our Work</div>
+    <div class="divider center"></div>
+    <h2 class="section-title">Service Gallery</h2>
+    <p class="section-sub">Real repair and installation work by our certified technicians across Chennai homes.</p>
+  </div>
+
+  <div class="gallery-filters reveal">
+    <button class="gf-btn active" onclick="filterGallery('all',this)">All Work</button>
+    <button class="gf-btn" onclick="filterGallery('ac',this)">❄️ AC Service</button>
+    <button class="gf-btn" onclick="filterGallery('washing',this)">🫧 Washing Machine</button>
+    <button class="gf-btn" onclick="filterGallery('fridge',this)">🧊 Refrigerator</button>
+    <button class="gf-btn" onclick="filterGallery('ro',this)">💧 RO / Water</button>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid">
+
+    <div class="gallery-item reveal" data-cat="ac"
+      onclick="openLightbox('ac1','AC Deep Cleaning','Complete disassembly, coil cleaning, gas top-up and performance test on a 1.5T Samsung split AC — restored to factory cooling levels.','AC Service','Samsung Split 1.5T · Anna Nagar')">
+      <div class="gi-art ac1">
+        <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="320" height="200" fill="#1e3a8a"/>
+          <rect x="20" y="60" width="280" height="80" rx="12" fill="#2563eb" opacity="0.7"/>
+          <rect x="30" y="70" width="260" height="60" rx="8" fill="#1d4ed8"/>
+          <rect x="40" y="82" width="180" height="8" rx="4" fill="#93c5fd"/>
+          <rect x="40" y="96" width="140" height="6" rx="3" fill="#60a5fa" opacity="0.7"/>
+          <rect x="40" y="108" width="160" height="6" rx="3" fill="#60a5fa" opacity="0.5"/>
+          <circle cx="260" cy="100" r="16" fill="#3b82f6"/>
+          <text x="260" y="105" text-anchor="middle" fill="white" font-size="14">❄</text>
+          <rect x="60" y="145" width="200" height="30" rx="6" fill="#1e40af" opacity="0.8"/>
+          <circle cx="90" cy="30" r="20" fill="#3b82f6" opacity="0.3"/>
+          <circle cx="230" cy="25" r="15" fill="#60a5fa" opacity="0.2"/>
+          <text x="160" y="185" text-anchor="middle" fill="#93c5fd" font-size="10" font-family="sans-serif">AC DEEP CLEANING SERVICE</text>
+        </svg>
+      </div>
+      <div class="gallery-badge">AC Service</div>
+      <div class="gallery-zoom">+</div>
+      <div class="gallery-overlay"><div class="gallery-overlay-text"><h4>AC Deep Cleaning</h4><p>Samsung 1.5T · Anna Nagar</p></div></div>
+    </div>
+
+    <div class="gallery-item reveal" data-cat="washing"
+      onclick="openLightbox('wash1','Washing Machine Repair','Front-load drum bearing replacement and motor service on an LG 7kg washer — silent and smooth after repair.','Washing Machine','LG 7kg Front Load · Adyar')">
+      <div class="gi-art wash1">
+        <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="320" height="200" fill="#312e81"/>
+          <rect x="80" y="20" width="160" height="170" rx="16" fill="#4338ca"/>
+          <rect x="90" y="30" width="140" height="30" rx="6" fill="#6366f1"/>
+          <circle cx="160" cy="130" r="50" fill="#3730a3"/>
+          <circle cx="160" cy="130" r="40" fill="#4338ca" stroke="#818cf8" stroke-width="3"/>
+          <circle cx="160" cy="130" r="20" fill="#6366f1"/>
+          <circle cx="160" cy="130" r="8" fill="#a5b4fc"/>
+          <line x1="160" y1="90" x2="160" y2="110" stroke="#c7d2fe" stroke-width="3"/>
+          <line x1="160" y1="150" x2="160" y2="170" stroke="#c7d2fe" stroke-width="3"/>
+          <line x1="120" y1="130" x2="140" y2="130" stroke="#c7d2fe" stroke-width="3"/>
+          <line x1="180" y1="130" x2="200" y2="130" stroke="#c7d2fe" stroke-width="3"/>
+          <circle cx="110" cy="42" r="6" fill="#a5b4fc"/>
+          <circle cx="128" cy="42" r="6" fill="#818cf8"/>
+          <rect x="145" y="37" width="70" height="10" rx="3" fill="#6366f1"/>
+          <text x="160" y="190" text-anchor="middle" fill="#a5b4fc" font-size="10" font-family="sans-serif">WASHING MACHINE REPAIR</text>
+        </svg>
+      </div>
+      <div class="gallery-badge">Washing Machine</div>
+      <div class="gallery-zoom">+</div>
+      <div class="gallery-overlay"><div class="gallery-overlay-text"><h4>Drum Bearing Repair</h4><p>LG 7kg Front Load · Adyar</p></div></div>
+    </div>
+
+    <div class="gallery-item reveal" data-cat="fridge"
+      onclick="openLightbox('fridge1','Refrigerator Repair','Double-door Samsung fridge compressor replaced and full gas recharge — cooling restored within 3 hours.','Refrigerator','Samsung 350L · T Nagar')">
+      <div class="gi-art fridge1">
+        <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="320" height="200" fill="#0c4a6e"/>
+          <rect x="90" y="10" width="140" height="180" rx="10" fill="#0369a1"/>
+          <rect x="90" y="10" width="140" height="85" rx="10" fill="#0284c7"/>
+          <rect x="90" y="93" width="140" height="97" rx="0 0 10 10" fill="#0369a1"/>
+          <line x1="90" y1="95" x2="230" y2="95" stroke="#075985" stroke-width="3"/>
+          <rect x="100" y="25" width="120" height="55" rx="6" fill="#075985" opacity="0.8"/>
+          <rect x="105" y="30" width="110" height="15" rx="3" fill="#0ea5e9" opacity="0.4"/>
+          <rect x="105" y="50" width="80" height="10" rx="3" fill="#38bdf8" opacity="0.3"/>
+          <rect x="100" y="108" width="120" height="70" rx="6" fill="#075985" opacity="0.8"/>
+          <rect x="108" y="118" width="50" height="8" rx="2" fill="#38bdf8" opacity="0.4"/>
+          <rect x="108" y="132" width="70" height="8" rx="2" fill="#38bdf8" opacity="0.3"/>
+          <rect x="108" y="146" width="60" height="8" rx="2" fill="#38bdf8" opacity="0.3"/>
+          <rect x="222" y="40" width="8" height="20" rx="4" fill="#7dd3fc"/>
+          <rect x="222" y="120" width="8" height="20" rx="4" fill="#7dd3fc"/>
+          <text x="160" y="198" text-anchor="middle" fill="#7dd3fc" font-size="10" font-family="sans-serif">REFRIGERATOR REPAIR</text>
+        </svg>
+      </div>
+      <div class="gallery-badge">Refrigerator</div>
+      <div class="gallery-zoom">+</div>
+      <div class="gallery-overlay"><div class="gallery-overlay-text"><h4>Compressor Replacement</h4><p>Samsung 350L · T Nagar</p></div></div>
+    </div>
+
+    <div class="gallery-item reveal" data-cat="ac"
+      onclick="openLightbox('ac2','AC Installation','Professional wall-mount installation of a Voltas 2T split AC with drainage, stand and electrical wiring.','AC Installation','Voltas 2T · Velachery')">
+      <div class="gi-art ac2">
+        <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="320" height="200" fill="#1e1b4b"/>
+          <rect x="0" y="120" width="320" height="80" fill="#27187E" opacity="0.6"/>
+          <rect x="20" y="50" width="280" height="65" rx="10" fill="#3730a3"/>
+          <rect x="30" y="58" width="260" height="48" rx="7" fill="#4338ca"/>
+          <rect x="40" y="67" width="200" height="7" rx="3" fill="#818cf8"/>
+          <rect x="40" y="80" width="150" height="5" rx="2.5" fill="#6366f1" opacity="0.8"/>
+          <rect x="40" y="91" width="170" height="5" rx="2.5" fill="#6366f1" opacity="0.6"/>
+          <circle cx="265" cy="83" r="14" fill="#4f46e5"/>
+          <text x="265" y="88" text-anchor="middle" fill="white" font-size="13">❄</text>
+          <rect x="148" y="115" width="14" height="45" fill="#6366f1" opacity="0.7"/>
+          <rect x="130" y="155" width="50" height="8" rx="2" fill="#4338ca" opacity="0.8"/>
+          <line x1="60" y1="130" x2="260" y2="130" stroke="#818cf8" stroke-width="1" opacity="0.3" stroke-dasharray="5,5"/>
+          <text x="160" y="185" text-anchor="middle" fill="#a5b4fc" font-size="10" font-family="sans-serif">SPLIT AC INSTALLATION</text>
+        </svg>
+      </div>
+      <div class="gallery-badge">Installation</div>
+      <div class="gallery-zoom">+</div>
+      <div class="gallery-overlay"><div class="gallery-overlay-text"><h4>Split AC Installation</h4><p>Voltas 2T · Velachery</p></div></div>
+    </div>
+
+    <div class="gallery-item reveal" data-cat="ro"
+      onclick="openLightbox('ro1','RO Installation','Kent Grand Plus RO system installed under-counter with dedicated faucet, TDS calibration and 6-stage filter setup.','RO Purifier','Kent Grand Plus · OMR')">
+      <div class="gi-art ro1">
+        <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="320" height="200" fill="#164e63"/>
+          <rect x="110" y="20" width="60" height="120" rx="8" fill="#0e7490"/>
+          <rect x="115" y="25" width="50" height="110" rx="6" fill="#155e75"/>
+          <rect x="120" y="35" width="40" height="8" rx="3" fill="#22d3ee" opacity="0.6"/>
+          <rect x="120" y="50" width="40" height="6" rx="3" fill="#06b6d4" opacity="0.4"/>
+          <rect x="120" y="63" width="40" height="6" rx="3" fill="#06b6d4" opacity="0.4"/>
+          <rect x="120" y="76" width="30" height="6" rx="3" fill="#06b6d4" opacity="0.3"/>
+          <circle cx="140" cy="100" r="18" fill="#0e7490" stroke="#22d3ee" stroke-width="2"/>
+          <text x="140" y="105" text-anchor="middle" fill="#67e8f9" font-size="16">💧</text>
+          <rect x="170" y="80" width="50" height="8" rx="4" fill="#0e7490"/>
+          <rect x="220" y="60" width="8" height="50" rx="4" fill="#0891b2"/>
+          <circle cx="224" cy="115" r="8" fill="#164e63" stroke="#22d3ee" stroke-width="2"/>
+          <rect x="80" y="80" width="30" height="8" rx="4" fill="#0e7490"/>
+          <rect x="72" y="60" width="8" height="50" rx="4" fill="#0891b2"/>
+          <rect x="90" y="148" width="140" height="20" rx="5" fill="#0e7490" opacity="0.6"/>
+          <text x="160" y="190" text-anchor="middle" fill="#67e8f9" font-size="10" font-family="sans-serif">RO WATER PURIFIER INSTALL</text>
+        </svg>
+      </div>
+      <div class="gallery-badge">RO Purifier</div>
+      <div class="gallery-zoom">+</div>
+      <div class="gallery-overlay"><div class="gallery-overlay-text"><h4>RO System Install</h4><p>Kent Grand Plus · OMR</p></div></div>
+    </div>
+
+    <div class="gallery-item reveal" data-cat="ac"
+      onclick="openLightbox('ac3','AC Gas Recharge','R-32 refrigerant top-up with leak detection and pressure test on a Daikin inverter AC — back to 100% efficiency.','AC Service','Daikin Inverter 1T · Nungambakkam')">
+      <div class="gi-art ac3">
+        <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="320" height="200" fill="#1a1a2e"/>
+          <rect x="40" y="80" width="80" height="120" rx="8" fill="#27187E" opacity="0.9"/>
+          <rect x="50" y="90" width="60" height="100" rx="5" fill="#1e1060"/>
+          <rect x="55" y="100" width="50" height="6" rx="2" fill="#818cf8"/>
+          <rect x="55" y="112" width="35" height="4" rx="2" fill="#6366f1" opacity="0.7"/>
+          <rect x="55" y="122" width="45" height="4" rx="2" fill="#6366f1" opacity="0.5"/>
+          <circle cx="80" cy="160" r="14" fill="#312e81" stroke="#818cf8" stroke-width="2"/>
+          <path d="M73 160 Q80 150 87 160" stroke="#a5b4fc" stroke-width="2" fill="none"/>
+          <rect x="150" y="60" width="30" height="90" rx="6" fill="#4338ca" opacity="0.8"/>
+          <rect x="158" y="65" width="14" height="80" rx="4" fill="#4f46e5"/>
+          <path d="M165 150 L155 180 L175 180 Z" fill="#6366f1"/>
+          <path d="M165 60 Q180 40 185 30 Q200 55 165 60" fill="#38bdf8" opacity="0.5"/>
+          <circle cx="230" cy="100" r="30" fill="#1e3a8a" opacity="0.6" stroke="#60a5fa" stroke-width="2"/>
+          <text x="230" y="97" text-anchor="middle" fill="#93c5fd" font-size="11" font-family="sans-serif">GAS</text>
+          <text x="230" y="110" text-anchor="middle" fill="#93c5fd" font-size="11" font-family="sans-serif">R-32</text>
+          <text x="160" y="195" text-anchor="middle" fill="#818cf8" font-size="10" font-family="sans-serif">AC GAS RECHARGE SERVICE</text>
+        </svg>
+      </div>
+      <div class="gallery-badge">Gas Recharge</div>
+      <div class="gallery-zoom">+</div>
+      <div class="gallery-overlay"><div class="gallery-overlay-text"><h4>Gas Recharge</h4><p>Daikin Inverter · Nungambakkam</p></div></div>
+    </div>
+
+    <div class="gallery-item reveal" data-cat="washing"
+      onclick="openLightbox('wash2','Top-Load Full Service','Whirlpool top-load washer inlet valve, pump and PCB replaced — full wash cycle working perfectly.','Washing Machine','Whirlpool 8kg · Chromepet')">
+      <div class="gi-art wash2">
+        <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="320" height="200" fill="#2d1b69"/>
+          <rect x="70" y="15" width="180" height="175" rx="14" fill="#4c1d95"/>
+          <rect x="80" y="25" width="160" height="45" rx="8" fill="#5b21b6"/>
+          <circle cx="110" cy="47" r="10" fill="#7c3aed"/>
+          <circle cx="110" cy="47" r="5" fill="#a78bfa"/>
+          <rect x="135" y="40" width="90" height="8" rx="3" fill="#7c3aed"/>
+          <rect x="135" y="52" width="60" height="5" rx="2" fill="#6d28d9" opacity="0.7"/>
+          <circle cx="160" cy="125" r="55" fill="#3b0764"/>
+          <circle cx="160" cy="125" r="45" fill="#4c1d95" stroke="#8b5cf6" stroke-width="3"/>
+          <circle cx="160" cy="125" r="25" fill="#5b21b6"/>
+          <circle cx="160" cy="125" r="10" fill="#7c3aed"/>
+          <text x="160" y="130" text-anchor="middle" fill="#c4b5fd" font-size="12">◎</text>
+          <text x="160" y="192" text-anchor="middle" fill="#c4b5fd" font-size="10" font-family="sans-serif">TOP-LOAD WASHER SERVICE</text>
+        </svg>
+      </div>
+      <div class="gallery-badge">Washing Machine</div>
+      <div class="gallery-zoom">+</div>
+      <div class="gallery-overlay"><div class="gallery-overlay-text"><h4>Top-Load Full Service</h4><p>Whirlpool 8kg · Chromepet</p></div></div>
+    </div>
+
+    <div class="gallery-item reveal" data-cat="fridge"
+      onclick="openLightbox('fridge2','Fridge Deep Clean','Full internal clean, thermostat check, door gasket replacement and cooling performance test on LG double door.','Refrigerator','LG Double Door · Porur')">
+      <div class="gi-art fridge2">
+        <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="320" height="200" fill="#052e16"/>
+          <rect x="85" y="10" width="150" height="180" rx="10" fill="#065f46"/>
+          <rect x="85" y="10" width="150" height="80" rx="10 10 0 0" fill="#047857"/>
+          <line x1="85" y1="90" x2="235" y2="90" stroke="#064e3b" stroke-width="3"/>
+          <rect x="95" y="20" width="130" height="58" rx="6" fill="#064e3b" opacity="0.7"/>
+          <text x="120" y="55" fill="#6ee7b7" font-size="28">🧊</text>
+          <rect x="95" y="100" width="130" height="78" rx="6" fill="#064e3b" opacity="0.7"/>
+          <rect x="103" y="110" width="60" height="7" rx="2" fill="#34d399" opacity="0.5"/>
+          <rect x="103" y="123" width="90" height="7" rx="2" fill="#34d399" opacity="0.4"/>
+          <rect x="103" y="136" width="75" height="7" rx="2" fill="#34d399" opacity="0.4"/>
+          <rect x="103" y="149" width="50" height="7" rx="2" fill="#34d399" opacity="0.3"/>
+          <rect x="227" y="35" width="8" height="22" rx="4" fill="#6ee7b7"/>
+          <rect x="227" y="115" width="8" height="22" rx="4" fill="#6ee7b7"/>
+          <text x="160" y="196" text-anchor="middle" fill="#6ee7b7" font-size="10" font-family="sans-serif">REFRIGERATOR DEEP CLEAN</text>
+        </svg>
+      </div>
+      <div class="gallery-badge">Refrigerator</div>
+      <div class="gallery-zoom">+</div>
+      <div class="gallery-overlay"><div class="gallery-overlay-text"><h4>Fridge Deep Clean</h4><p>LG Double Door · Porur</p></div></div>
+    </div>
+
+    <div class="gallery-item reveal" data-cat="ac"
+      onclick="openLightbox('ac4','PCB Repair','AC outdoor unit PCB diagnosis and component-level repair — saved customer ₹8,000 vs full board replacement.','AC Repair','Hitachi Outdoor · Porur')">
+      <div class="gi-art ac4">
+        <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="320" height="200" fill="#111827"/>
+          <rect x="40" y="30" width="240" height="140" rx="8" fill="#1f2937"/>
+          <rect x="50" y="40" width="220" height="120" rx="5" fill="#111827"/>
+          <!-- PCB traces -->
+          <line x1="70" y1="80" x2="120" y2="80" stroke="#22c55e" stroke-width="2"/>
+          <line x1="120" y1="80" x2="120" y2="110" stroke="#22c55e" stroke-width="2"/>
+          <line x1="120" y1="110" x2="200" y2="110" stroke="#22c55e" stroke-width="2"/>
+          <line x1="160" y1="60" x2="160" y2="80" stroke="#3b82f6" stroke-width="2"/>
+          <line x1="160" y1="80" x2="240" y2="80" stroke="#3b82f6" stroke-width="2"/>
+          <line x1="200" y1="110" x2="200" y2="140" stroke="#22c55e" stroke-width="2"/>
+          <line x1="80" y1="130" x2="150" y2="130" stroke="#f59e0b" stroke-width="2"/>
+          <!-- Components -->
+          <rect x="100" y="72" width="20" height="16" rx="2" fill="#374151" stroke="#6b7280" stroke-width="1"/>
+          <rect x="150" y="72" width="20" height="16" rx="2" fill="#374151" stroke="#6b7280" stroke-width="1"/>
+          <rect x="190" y="102" width="20" height="16" rx="2" fill="#374151" stroke="#6b7280" stroke-width="1"/>
+          <circle cx="240" cy="80" r="8" fill="#374151" stroke="#22c55e" stroke-width="1.5"/>
+          <circle cx="70" cy="80" r="6" fill="#374151" stroke="#3b82f6" stroke-width="1.5"/>
+          <rect x="130" y="118" width="16" height="24" rx="2" fill="#1e3a5f" stroke="#60a5fa" stroke-width="1"/>
+          <!-- Indicator LEDs -->
+          <circle cx="80" cy="55" r="5" fill="#22c55e" opacity="0.9"/>
+          <circle cx="96" cy="55" r="5" fill="#ef4444" opacity="0.9"/>
+          <circle cx="112" cy="55" r="5" fill="#f59e0b" opacity="0.9"/>
+          <text x="160" y="185" text-anchor="middle" fill="#6b7280" font-size="10" font-family="sans-serif">PCB DIAGNOSIS &amp; REPAIR</text>
+        </svg>
+      </div>
+      <div class="gallery-badge">AC Repair</div>
+      <div class="gallery-zoom">+</div>
+      <div class="gallery-overlay"><div class="gallery-overlay-text"><h4>PCB Component Repair</h4><p>Hitachi Outdoor · Porur</p></div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── VIDEOS ────────────────────────────── -->
+<section id="videos">
+  <div class="section-head center reveal">
+    <div class="section-label">Watch Us Work</div>
+    <div class="divider center"></div>
+    <h2 class="section-title">How We Repair &amp; Service</h2>
+    <p class="section-sub">Watch our expert technicians in action — professional AC, washing machine and refrigerator repair techniques.</p>
+  </div>
+  <div class="video-grid">
+
+    <div class="video-card reveal">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/7tBH_m_aq3M?rel=0&modestbranding=1"
+          title="AC Service and Cleaning" allowfullscreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+        </iframe>
+      </div>
+      <div class="video-info">
+        <div class="video-tag">AC Service</div>
+        <h4>Split AC Deep Cleaning &amp; Service</h4>
+        <p>How professionals disassemble, clean and service a split AC unit for peak performance.</p>
+      </div>
+    </div>
+
+    <div class="video-card reveal" style="transition-delay:0.1s">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/oiSmQJXiHWQ?rel=0&modestbranding=1"
+          title="Washing Machine Repair" allowfullscreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+        </iframe>
+      </div>
+      <div class="video-info">
+        <div class="video-tag">Washing Machine</div>
+        <h4>Washing Machine Drum &amp; Motor Repair</h4>
+        <p>Step-by-step front-load washing machine disassembly, drum bearing and motor service.</p>
+      </div>
+    </div>
+
+    <div class="video-card reveal" style="transition-delay:0.15s">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/XFoXbFHZxzQ?rel=0&modestbranding=1"
+          title="Refrigerator Repair" allowfullscreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+        </iframe>
+      </div>
+      <div class="video-info">
+        <div class="video-tag">Refrigerator</div>
+        <h4>Refrigerator Not Cooling — Diagnosis &amp; Fix</h4>
+        <p>Complete refrigerator repair walkthrough — compressor, gas and thermostat diagnosis.</p>
+      </div>
+    </div>
+
+    <div class="video-card reveal" style="transition-delay:0.2s">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/vRGE0x6w2zA?rel=0&modestbranding=1"
+          title="RO Water Purifier Service" allowfullscreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+        </iframe>
+      </div>
+      <div class="video-info">
+        <div class="video-tag">RO Purifier</div>
+        <h4>RO Water Purifier Filter &amp; Membrane Change</h4>
+        <p>How to replace RO filters, membrane and UV lamp for pure drinking water.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" onclick="closeLightboxOutside(event)">
+  <div class="lb-box">
+    <button class="lb-close" onclick="closeLightbox()">✕</button>
+    <img class="lb-img" id="lbImg" src="" alt="Service photo" onerror="this.src='https://placehold.co/800x400/27187E/ffffff?text=Service+Photo'"/>
+    <div class="lb-body">
+      <div class="lb-top-row">
+        <div class="lb-tag" id="lbTag">Service</div>
+        <span class="lb-location" id="lbLocation">Chennai</span>
+      </div>
+      <div class="lb-title" id="lbTitle">Title</div>
+      <div class="lb-desc"  id="lbDesc">Description</div>
+      <a href="#contact" class="lb-book" onclick="closeLightbox()">📅 Book This Service</a>
+    </div>
+  </div>
+</div>
+
+<!-- ─── CONTACT ───────────────────────────── -->
+<section id="contact">
+  <div class="section-head center reveal">
+    <div class="section-label">Get In Touch</div>
+    <div class="divider center"></div>
+    <h2 class="section-title">Book a Service Today</h2>
+    <p class="section-sub">Fill in the form and our team will contact you within 30 minutes.</p>
+  </div>
+  <div class="contact-layout">
+    <div class="contact-info reveal left">
+      <div>
+        <h2 class="section-title" style="font-size:1.8rem">We're Just a Call Away</h2>
+        <p>Available 7 days a week, 8 AM to 9 PM. Emergency calls accepted 24/7.</p>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">📞</div>
+        <div class="ci-text">
+          <div class="label">Call / WhatsApp</div>
+          <div class="val">+91 98765 43210</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">📧</div>
+        <div class="ci-text">
+          <div class="label">Email</div>
+          <div class="val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f083958286999395b08383939f9f9c93918295de999e">[email&#160;protected]</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">📍</div>
+        <div class="ci-text">
+          <div class="label">Service Area</div>
+          <div class="val">All areas of Chennai</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">🕐</div>
+        <div class="ci-text">
+          <div class="label">Working Hours</div>
+          <div class="val">Mon–Sun: 8 AM – 9 PM</div>
+        </div>
+      </div>
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497699.99274177335!2d79.72949453488616!3d13.047478694947982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1702000000000!5m2!1sen!2sin"
+          width="100%" height="220" style="border:0" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+    <div class="contact-form reveal right">
+      <h3>Request a Service</h3>
+      <p class="form-sub">Our expert technicians will reach you within 60 minutes across Chennai.</p>
+      <div id="formSuccess" class="form-success">
+        🎉 Thank you! We received your request and will call you within 30 minutes.
+      </div>
+      <form id="serviceForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" placeholder="+91 98765 43210" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="you@example.com" />
+          </div>
+          <div class="form-group">
+            <label>Service Type *</label>
+            <select required>
+              <option value="">Select a service...</option>
+              <option>AC Repair</option>
+              <option>AC Installation</option>
+              <option>AC Maintenance (AMC)</option>
+              <option>Washing Machine Repair</option>
+              <option>Refrigerator Repair</option>
+              <option>RO Water Purifier</option>
+              <option>Emergency Service</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Brand / Model</label>
+            <input type="text" placeholder="e.g. Samsung, LG, Voltas" />
+          </div>
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Your Address *</label>
+          <input type="text" placeholder="Area, Chennai (e.g. Velachery, Anna Nagar)" required />
+        </div>
+        <div class="form-group">
+          <label>Describe the Issue</label>
+          <textarea placeholder="What issue are you facing? (e.g. Not cooling, water leaking, making noise...)"></textarea>
+        </div>
+        <button type="submit" class="form-submit">⚡ Book Service Now</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="logo">
+        <div class="logo-icon">❄</div>
+        SS Coolcare
+      </a>
+      <p>Chennai's most trusted home appliance service provider. AC, Washing Machine, Fridge & RO experts since 2014.</p>
+      <div class="footer-socials">
+        <a href="#" title="Facebook">f</a>
+        <a href="#" title="Instagram">📸</a>
+        <a href="#" title="WhatsApp">💬</a>
+        <a href="#" title="YouTube">▶</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">AC Repair</a></li>
+        <li><a href="#services">AC Installation</a></li>
+        <li><a href="#services">AC Maintenance</a></li>
+        <li><a href="#services">Washing Machine</a></li>
+        <li><a href="#services">Refrigerator Repair</a></li>
+        <li><a href="#services">RO Purifier</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#why">Why Choose Us</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+919876543210">📞 +91 98765 43210</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#92e1f7e0e4fbf1f7d2e1e1f1fdfdfef1f3e0f7bcfbfc">📧 <span class="__cf_email__" data-cfemail="94e7f1e6e2fdf7f1d4e7e7f7fbfbf8f7f5e6f1bafdfa">[email&#160;protected]</span></a></li>
+        <li><a href="#">📍 Chennai, Tamil Nadu</a></li>
+        <li><a href="#">🕐 Mon–Sun: 8AM–9PM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 SS Coolcare. All rights reserved.</span>
+    <span>Made with ❤️ in Chennai</span>
+  </div>
+</footer>
+
+<!-- ─── FLOATING BUTTONS + SCROLL TOP ────── -->
+<div class="floating-btns">
+  <button id="scrollTop" onclick="smoothScrollTop()" title="Back to top">↑</button>
+  <a class="fab fab-wa" href="https://wa.me/919876543210?text=Hi, I need an appliance service" target="_blank" title="WhatsApp Us">
+    💬
+    <span class="fab-label">WhatsApp</span>
+  </a>
+  <a class="fab fab-call" href="tel:+919876543210" title="Call Now">
+    📞
+    <span class="fab-label">Call Now</span>
+  </a>
+</div>
+
+<script>
+// ─── SMOOTH SCROLL TO TOP ─────────────────
+function smoothScrollTop() {
+  const start    = window.scrollY;
+  if (start === 0) return;
+  // Scale duration with distance — longer page = more time, feels natural
+  const duration = Math.min(Math.max(start * 0.6, 800), 1800);
+  const startTime = performance.now();
+  // Ease-out quint — starts fast, slows beautifully near top
+  function ease(t) {
+    return 1 - Math.pow(1 - t, 5);
+  }
+  function step(now) {
+    const elapsed  = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, start * (1 - ease(progress)));
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const body = document.body;
+const toggleBtn = document.getElementById('darkToggle');
+const saved = localStorage.getItem('theme') || 'light';
+body.setAttribute('data-theme', saved);
+toggleBtn.addEventListener('click', () => {
+  const current = body.getAttribute('data-theme');
+  const next = current === 'light' ? 'dark' : 'light';
+  body.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+});
+
+// ─── HAMBURGER ────────────────────────────
+const ham = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+ham.addEventListener('click', () => {
+  ham.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMenu() {
+  ham.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+
+// ─── TOP SCROLL PROGRESS BAR ──────────────
+const sbFill = document.getElementById('sbFill');
+const sbGlow = document.getElementById('sbGlow');
+
+// Colour stops matching the CSS gradient — pct → [r,g,b]
+const colorStops = [
+  [0,   [67,  97,  238]],  // #4361ee  bright blue   (page top)
+  [22,  [79,  59,  232]],  // #4f3be8  indigo
+  [45,  [39,  24,  126]],  // #27187E  deep navy
+  [68,  [123, 47,  255]],  // #7b2fff  violet
+  [84,  [200, 36,  92 ]],  // #c8245c  crimson
+  [100, [230, 61,  144]],  // #e63d90  magenta       (page bottom)
+];
+
+function lerpColor(pct) {
+  pct = Math.max(0, Math.min(100, pct));
+  let lo = colorStops[0], hi = colorStops[colorStops.length - 1];
+  for (let i = 0; i < colorStops.length - 1; i++) {
+    if (pct >= colorStops[i][0] && pct <= colorStops[i+1][0]) {
+      lo = colorStops[i]; hi = colorStops[i+1]; break;
+    }
+  }
+  const range = hi[0] - lo[0];
+  const t = range === 0 ? 0 : (pct - lo[0]) / range;
+  const r = Math.round(lo[1][0] + (hi[1][0] - lo[1][0]) * t);
+  const g = Math.round(lo[1][1] + (hi[1][1] - lo[1][1]) * t);
+  const b = Math.round(lo[1][2] + (hi[1][2] - lo[1][2]) * t);
+  return [r,g,b];
+}
+
+function updateScrollBar() {
+  const scrollTop = window.scrollY;
+  const totalH    = document.documentElement.scrollHeight - window.innerHeight;
+  const pct       = totalH > 0 ? Math.min(100, (scrollTop / totalH) * 100) : 0;
+
+  // Grow fill TOP → BOTTOM (vertical right-side bar)
+  sbFill.style.height = pct + '%';
+
+  // Move glowing dot to the bottom tip of the fill
+  sbGlow.style.top = 'calc(' + pct + '% - 5px)';
+  sbGlow.classList.toggle('visible', pct > 0.5);
+
+  // Interpolate glow colour to match the gradient at current scroll depth
+  const [r,g,b] = lerpColor(pct);
+  sbGlow.style.background = `rgb(${r},${g},${b})`;
+  sbGlow.style.boxShadow  =
+    `0 0 8px 3px rgba(${r},${g},${b},0.72),`+
+    `0 0 20px 8px rgba(${r},${g},${b},0.26)`;
+}
+
+window.addEventListener('scroll', () => {
+  updateScrollBar();
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+  document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+}, { passive: true });
+
+updateScrollBar();
+
+// ─── SCROLL REVEAL ────────────────────────
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+revealEls.forEach(el => observer.observe(el));
+
+// ─── STAT COUNTERS ────────────────────────
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting || e.target.classList.contains('counted2')) return;
+    e.target.classList.add('counted2');
+    const numEl = e.target.querySelector('[data-target2]');
+    if (numEl) {
+      const target = +numEl.dataset.target2;
+      const steps = 60; const duration = 2200;
+      const easeOut = t => 1 - Math.pow(1 - t, 3);
+      let step = 0;
+      const tick = setInterval(() => {
+        step++;
+        numEl.textContent = (Math.round(easeOut(step/steps)*target) >= 1000)
+          ? Math.round(easeOut(step/steps)*target).toLocaleString()
+          : Math.round(easeOut(step/steps)*target);
+        if (step >= steps) { numEl.textContent = target >= 1000 ? target.toLocaleString() : target; clearInterval(tick); }
+      }, duration / steps);
+    }
+    const bar = e.target.querySelector('.stat-bar-fill');
+    if (bar) requestAnimationFrame(() => { bar.style.width = (bar.dataset.width || 80) + '%'; });
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.stat-block').forEach(b => statObserver.observe(b));
+
+// ─── FORM SUBMIT ──────────────────────────
+document.getElementById('serviceForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  document.getElementById('formSuccess').classList.add('show');
+  e.target.style.display = 'none';
+  setTimeout(() => toast.classList.remove('show'), 4000);
+});
+
+// ─── SMOOTH SCROLL with navbar offset ─────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (!href || href === '#') return;
+    const target = document.querySelector(href);
+    if (!target) return;
+    e.preventDefault();
+    if (typeof closeMenu === 'function') closeMenu();
+    const navH = document.getElementById('navbar').offsetHeight || 68;
+    const top  = target.getBoundingClientRect().top + window.scrollY - navH;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+  });
+});
+
+// ─── LIGHTBOX ─────────────────────────────
+function openLightbox(artId, title, desc, tag, location) {
+  // Grab the SVG artwork from the clicked card
+  const artEl = document.querySelector('.gi-art.' + artId + ' svg');
+  const lbImg = document.getElementById('lbImg');
+  if (artEl) {
+    // Serialize SVG to data URL for the lightbox image
+    const svgData = new XMLSerializer().serializeToString(artEl);
+    const svgBlob = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgData);
+    lbImg.src = svgBlob;
+    lbImg.style.display = 'block';
+  } else {
+    lbImg.src = artId; // fallback: artId was a URL
+    lbImg.style.display = 'block';
+  }
+  document.getElementById('lbTitle').textContent    = title;
+  document.getElementById('lbDesc').textContent     = desc;
+  document.getElementById('lbTag').textContent      = tag;
+  document.getElementById('lbLocation').textContent = location || 'Chennai';
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeLightboxOutside(e) {
+  if (e.target.id === 'lightbox') closeLightbox();
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+// ─── GALLERY FILTER ───────────────────────
+function filterGallery(cat, btn) {
+  // Update active button
+  document.querySelectorAll('.gf-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // Show/hide items
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    const match = cat === 'all' || item.dataset.cat === cat;
+    if (match) {
+      item.style.display = '';
+      item.style.opacity = '0';
+      item.style.transform = 'scale(0.92) translateY(10px)';
+      setTimeout(() => {
+        item.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        item.style.opacity = '1';
+        item.style.transform = 'scale(1) translateY(0)';
+      }, 30);
+    } else {
+      item.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+      item.style.opacity = '0';
+      item.style.transform = 'scale(0.9)';
+      setTimeout(() => { item.style.display = 'none'; }, 280);
+    }
+  });
+}
+</script>
+
+<!-- Swiper loaded async — page works fine even if this fails -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<script async src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+  onload="
+    try { new Swiper('.hero-swiper',{loop:true,autoplay:{delay:3500,disableOnInteraction:false},speed:700,slidesPerView:1,spaceBetween:20,pagination:{el:'.hero-swiper .swiper-pagination',clickable:true},breakpoints:{640:{slidesPerView:1.15},900:{slidesPerView:1.4}}}); } catch(e){}
+    try { new Swiper('.service-swiper',{loop:true,autoplay:{delay:2800,disableOnInteraction:false},speed:600,slidesPerView:'auto',spaceBetween:20,freeMode:true,grabCursor:true}); } catch(e){}
+    try { new Swiper('.testi-swiper',{loop:true,autoplay:{delay:4000,disableOnInteraction:false},speed:700,slidesPerView:1,spaceBetween:24,pagination:{el:'.testi-swiper .swiper-pagination',clickable:true},breakpoints:{700:{slidesPerView:2},1100:{slidesPerView:3}}}); } catch(e){}
+  ">
+</script>
+</body>
+</html>
